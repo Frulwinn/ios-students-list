@@ -26,7 +26,23 @@ class MainViewController: UIViewController {
                 NSLog("Error loading students; \(error)")
                 return
             }
+            //switch to main thread
+            DispatchQueue.main.async {
+                self.students = students ?? []
+            }
         }
+    }
+    
+    private func updateSort() {
+        let assortedStudents: [Student]
+        if sortSelector.selectedSegmentIndex == 0 {
+            assortedStudents = students.sorted { $0.firstName < $1.firstName }
+        } else {
+            assortedStudents = students.sorted {
+                ($0.lastName ?? "") < ($1.lastName ?? "")
+            }
+        }
+        studentsTableViewController.students = sortedStudents
     }
     
 
