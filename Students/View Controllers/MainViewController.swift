@@ -12,8 +12,16 @@ class MainViewController: UIViewController {
     
     //properties
     private let networkClient = NetworkClient()
-    private var studentsTableViewController: StudentsTableViewController!
-    private var students: [Student] = []
+    private var studentsTableViewController: StudentsTableViewController! {
+        didSet {
+            updateSort()
+        }
+    }
+    private var students: [Student] = [] {
+        didSet {
+            updateSort()
+        }
+    }
     
     //outlets
     @IBOutlet weak var sortSelector: UISegmentedControl!
@@ -34,15 +42,18 @@ class MainViewController: UIViewController {
     }
     
     private func updateSort() {
-        let assortedStudents: [Student]
+        let sortedStudents: [Student]
         if sortSelector.selectedSegmentIndex == 0 {
-            assortedStudents = students.sorted { $0.firstName < $1.firstName }
+            sortedStudents = students.sorted { $0.firstName < $1.firstName }
         } else {
-            assortedStudents = students.sorted {
+            sortedStudents = students.sorted {
                 ($0.lastName ?? "") < ($1.lastName ?? "")
             }
         }
         studentsTableViewController.students = sortedStudents
+    }
+    @IBAction func sort(_ sender: UISegmentedControl) {
+        updateSort()
     }
     
 

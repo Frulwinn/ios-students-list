@@ -24,9 +24,12 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dwY-IP-6Iy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
+                                            <segment title="First Name"/>
+                                            <segment title="Last Name"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="sort:" destination="4NM-Jg-MGa" eventType="valueChanged" id="xre-H6-z7Y"/>
+                                        </connections>
                                     </segmentedControl>
                                     <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-0C-OMp">
                                         <rect key="frame" x="0.0" y="36" width="375" height="591"/>
