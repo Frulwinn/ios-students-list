@@ -51,6 +51,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DJ7-DE-aGg"/>
                     </view>
+                    <connections>
+                        <outlet property="sortSelector" destination="dwY-IP-6Iy" id="cYx-Oh-foA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2T5-Yx-Su5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
